@@ -5,6 +5,7 @@ var cookieParser = require("cookie-parser");
 var logger = require("morgan");
 const mongoose = require("mongoose");
 var config = require("./config");
+const uploadRouter = require("./routes/uploadRouter");
 
 var session = require("express-session");
 
@@ -68,7 +69,7 @@ app.use(passport.session());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
+app.use("/imageUpload", uploadRouter);
 app.use("/dishes", dishRouter);
 app.use("/promotions", promoRouter);
 app.use("/leaders", leaderRouter);
